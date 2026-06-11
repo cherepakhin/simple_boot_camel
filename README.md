@@ -1,14 +1,4 @@
-Из репозитория git [https://github.com/tiven-wang/spring-boot-guides.git](https://github.com/tiven-wang/spring-boot-guides.git)
-
-Выбрать branch camel
-
-Остальные ветки:
- - starter
- - caching
- - camel
- - setup
- - reactive-web
- - web-reactive-functional
+# SpringBoot + Camel REST API
 
 ````shell
 echo $JAVA_HOME
@@ -23,15 +13,15 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 ---
 
-[http://127.0.0.1:8080/camel-rest-jpa/api-doc](http://127.0.0.1:8080/camel-rest-jpa/api-doc)
+[http://127.0.0.1:8080/camel-rest/api-doc](http://127.0.0.1:8080/camel-rest/api-doc)
 
 ---
 Запрос:
 ````shell
-http :8080/camel-rest-jpa/books/
+http :8080/camel-rest/books/
 ````
 
-[http://127.0.0.1:8080/camel-rest-jpa/books/](http://127.0.0.1:8080/camel-rest-jpa/books/)
+[http://127.0.0.1:8080/camel-rest/books/](http://127.0.0.1:8080/camel-rest/books/)
 
 Ответ:
 ````json
@@ -79,10 +69,10 @@ http :8080/camel-rest-jpa/books/
 
 Запрос:
 ````shell
-http :8080/camel-rest-jpa/books/9
+http :8080/camel-rest/books/9
 ````
 
-[http://127.0.0.1:8080/camel-rest-jpa/books/9](http://127.0.0.1:8080/camel-rest-jpa/books/9)
+[http://127.0.0.1:8080/camel-rest/books/9](http://127.0.0.1:8080/camel-rest/books/9)
 
 Ответ:
 ````json
@@ -144,7 +134,7 @@ http :8080/metrics/
     "classes.loaded": 11114,
     "classes.unloaded": 0,
     "counter.status.200.beans": 1,
-    "counter.status.200.camel-rest-jpa.books.9": 1,
+    "counter.status.200.camel-rest.books.9": 1,
     "counter.status.200.camel.route-controller": 1,
     "counter.status.200.configprops": 2,
     "counter.status.200.info": 1,
@@ -154,7 +144,7 @@ http :8080/metrics/
     "counter.status.404.webjars.star-star": 1,
     "counter.status.500.error": 1,
     "gauge.response.beans": 77.0,
-    "gauge.response.camel-rest-jpa.books.9": 239.0,
+    "gauge.response.camel-rest.books.9": 239.0,
     "gauge.response.camel.route-controller": 4.0,
     "gauge.response.camel.routes.id.info": 88.0,
     "gauge.response.configprops": 160.0,
@@ -417,37 +407,9 @@ INFO 27374 --- [           main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapp
 INFO 27374 --- [           main] o.s.j.e.a.Annotation
 ````
 
-Запрос:
-````shell
-http :8080/camel/routes.json
-````
-
-Ответ:
-
-````json
-[
-    {
-        "id": "books-api",
-        "status": "Started",
-        "uptime": "1 minute",
-        "uptimeMillis": 86922
-    },
-    {
-        "id": "book-api",
-        "status": "Started",
-        "uptime": "1 minute",
-        "uptimeMillis": 86920
-    },
-    {
-        "id": "doc-api",
-        "status": "Started",
-        "uptime": "1 minute",
-        "uptimeMillis": 86918
-    }
-]
-````
-
 ---
+
+### Информацию о системе:
 
 Запрос:
 
@@ -457,11 +419,35 @@ http :8080/env
 
 Ответ [doc/env.json](doc/env.json)
 
+### Показывает маршруты и подробные статусы
+
+Запрос:
+````shell
+http :8080/camel/routes.json
+````
+
+Ответ [doc/routes.json](doc/routes.json)
+
+Внимание на book-api, bookS-api
+
+### Состояние маршрутов (UP или DOWN)
+
+````shell
+http :8080/camel/health/check | jq > doc/health_check.json
+````
+(jq - форматирует вывод)
+
+Ответ [doc/health_check.json](doc/health_check.json)
+
+
 TODO: дальше?
 
 # spring-boot-guides
 Spring Boot Guides
 
+Стартовый проект со Spring-Boot и Maven [https://github.com/tiven-wang/spring-boot-guides.git](https://github.com/tiven-wang/spring-boot-guides.git)
+
 ## Spring Boot Camel
 
 The source codes of article [Spring Boot - Apache Camel](http://tiven.wang/articles/spring-boot-camel/#camel).
+

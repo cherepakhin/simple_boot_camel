@@ -1,0 +1,23 @@
+[
+  {
+    "status": "UP",
+    "check": {
+      "id": "route:books-api",
+      "group": "camel"
+    }
+  },
+  {
+    "status": "UP",
+    "check": {
+      "id": "route:book-api",
+      "group": "camel"
+    }
+  },
+  {
+    "status": "UP",
+    "check": {
+      "id": "route:doc-api",
+      "group": "camel"
+    }
+  }
+]

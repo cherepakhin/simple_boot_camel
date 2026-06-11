@@ -1,0 +1,20 @@
+{
+  "id": "book-api",
+  "uptime": "45 minutes",
+  "uptimeMillis": 2749409,
+  "status": "Started",
+  "details": {
+    "deltaProcessingTime": 0,
+    "exchangesInflight": 0,
+    "exchangesTotal": 0,
+    "externalRedeliveries": 0,
+    "failuresHandled": 0,
+    "lastProcessingTime": -1,
+    "maxProcessingTime": 0,
+    "meanProcessingTime": -1,
+    "minProcessingTime": 0,
+    "redeliveries": 0,
+    "totalProcessingTime": 0,
+    "hasRouteController": false
+  }
+}

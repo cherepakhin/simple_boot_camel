@@ -1,0 +1,20 @@
+[
+  {
+    "id": "books-api",
+    "uptime": "46 minutes",
+    "uptimeMillis": 2791396,
+    "status": "Started"
+  },
+  {
+    "id": "book-api",
+    "uptime": "46 minutes",
+    "uptimeMillis": 2791394,
+    "status": "Started"
+  },
+  {
+    "id": "doc-api",
+    "uptime": "46 minutes",
+    "uptimeMillis": 2791392,
+    "status": "Started"
+  }
+]

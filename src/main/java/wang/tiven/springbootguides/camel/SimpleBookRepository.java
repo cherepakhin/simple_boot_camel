@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Типа репозиторий.
+ */
 @Component("bookRepository")
 public class SimpleBookRepository implements BookRepository {
 	
