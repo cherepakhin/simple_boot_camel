@@ -224,148 +224,43 @@ http :8080/trace.json
 http :8080/mappings.json
 ````
 
-Ответ:
-````json
-{
-    "/**": {
-        "bean": "resourceHandlerMapping"
-    },
-    "/**/favicon.ico": {
-        "bean": "faviconHandlerMapping"
-    },
-    "/webjars/**": {
-        "bean": "resourceHandlerMapping"
-    },
-    "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)"
-    },
-    "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/camel/health/check || /camel/health/check.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/camel/health/check/{id}/invoke],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelHealthCheckMvcEndpoint.invoke(java.lang.String,java.util.Map<java.lang.String, java.lang.Object>)"
-    },
-    "{[/camel/health/check/{id}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelHealthCheckMvcEndpoint.query(java.lang.String,java.util.Map<java.lang.String, java.lang.Object>)"
-    },
-    "{[/camel/route-controller || /camel/route-controller.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/camel/routes || /camel/routes.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/camel/routes/{id}/detail],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.detail(java.lang.String)"
-    },
-    "{[/camel/routes/{id}/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.info(java.lang.String)"
-    },
-    "{[/camel/routes/{id}/reset],methods=[POST],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.reset(java.lang.String)"
-    },
-    "{[/camel/routes/{id}/resume],methods=[POST],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.resume(java.lang.String)"
-    },
-    "{[/camel/routes/{id}/start],methods=[POST],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.start(java.lang.String)"
-    },
-    "{[/camel/routes/{id}/stop],methods=[POST],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.stop(java.lang.String,java.lang.Long,java.lang.Boolean)"
-    },
-    "{[/camel/routes/{id}/suspend],methods=[POST],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.apache.camel.spring.boot.actuate.endpoint.CamelRoutesMvcEndpoint.suspend(java.lang.String,java.lang.Long)"
-    },
-    "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)"
-    },
-    "{[/error],produces=[text/html]}": {
-        "bean": "requestMappingHandlerMapping",
-        "method": "public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)"
-    },
-    "{[/error]}": {
-        "bean": "requestMappingHandlerMapping",
-        "method": "public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)"
-    },
-    "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)"
-    },
-    "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException"
-    },
-    "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)"
-    },
-    "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)"
-    },
-    "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    },
-    "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)"
-    },
-    "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}": {
-        "bean": "endpointHandlerMapping",
-        "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
-    }
-}
-````
+Ответ [doc/mappings.json](doc/mappings.json)
 
 ---
 
-Весь лог со служебными API:
+### Информацию о системе:
+
+Запрос:
+
+````shell
+http :8080/env
+````
+
+Ответ [doc/env.json](doc/env.json)
+
+### Показывает маршруты и подробные статусы
+
+Запрос:
+````shell
+http :8080/camel/routes.json
+````
+
+Ответ [doc/routes.json](doc/routes.json)
+
+Внимание на book-api, bookS-api
+
+### Состояние маршрутов (UP или DOWN)
+
+````shell
+http :8080/camel/health/check | jq > doc/health_check.json
+````
+(jq - форматирует вывод)
+
+Ответ [doc/health_check.json](doc/health_check.json)
+
+---
+
+### Весь лог со служебными API:
 
 ````text
 INFO 27374 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
@@ -406,39 +301,7 @@ INFO 27374 --- [           main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapp
 INFO 27374 --- [           main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 INFO 27374 --- [           main] o.s.j.e.a.Annotation
 ````
-
 ---
-
-### Информацию о системе:
-
-Запрос:
-
-````shell
-http :8080/env
-````
-
-Ответ [doc/env.json](doc/env.json)
-
-### Показывает маршруты и подробные статусы
-
-Запрос:
-````shell
-http :8080/camel/routes.json
-````
-
-Ответ [doc/routes.json](doc/routes.json)
-
-Внимание на book-api, bookS-api
-
-### Состояние маршрутов (UP или DOWN)
-
-````shell
-http :8080/camel/health/check | jq > doc/health_check.json
-````
-(jq - форматирует вывод)
-
-Ответ [doc/health_check.json](doc/health_check.json)
-
 
 TODO: дальше?
 
