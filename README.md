@@ -1,10 +1,19 @@
-https://github.com/tiven-wang/spring-boot-guides.git
+Из репозитория git [https://github.com/tiven-wang/spring-boot-guides.git](https://github.com/tiven-wang/spring-boot-guides.git)
 
-branch camel
+Выбрать branch camel
+
+Остальные ветки:
+ - starter
+ - caching
+ - camel
+ - setup
+ - reactive-web
+ - web-reactive-functional
 
 ````shell
 echo $JAVA_HOME
 ````
+
 /usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 ````shell
@@ -12,57 +21,123 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 ./mvnw spring-boot:run
 ````
 
+---
+
+[http://127.0.0.1:8080/camel-rest-jpa/api-doc](http://127.0.0.1:8080/camel-rest-jpa/api-doc)
+
+---
+Запрос:
 ````shell
-http :8080/camel-rest-jpa/books
+http :8080/camel-rest-jpa/books/
 ````
 
-http://127.0.0.1:8080/camel-rest-jpa/api-doc
+[http://127.0.0.1:8080/camel-rest-jpa/books/](http://127.0.0.1:8080/camel-rest-jpa/books/)
 
+Ответ:
+````json
+[
+    {
+        "isbn": "1",
+        "title": "This is book 1"
+    },
+    {
+        "isbn": "2",
+        "title": "This is book 2"
+    },
+    {
+        "isbn": "3",
+        "title": "This is book 3"
+    },
+    {
+        "isbn": "4",
+        "title": "This is book 4"
+    },
+    {
+        "isbn": "5",
+        "title": "This is book 5"
+    },
+    {
+        "isbn": "6",
+        "title": "This is book 6"
+    },
+    {
+        "isbn": "7",
+        "title": "This is book 7"
+    },
+    {
+        "isbn": "8",
+        "title": "This is book 8"
+    },
+    {
+        "isbn": "9",
+        "title": "This is book 9"
+    }
+]
+````
+
+---
+
+Запрос:
 ````shell
 http :8080/camel-rest-jpa/books/9
 ````
 
+[http://127.0.0.1:8080/camel-rest-jpa/books/9](http://127.0.0.1:8080/camel-rest-jpa/books/9)
+
+Ответ:
+````json
 id: 9
 {
     "isbn": "9",
     "title": "This is book 9"
 }
-
-````shell
-http :8080/camel-rest-jpa/books/
 ````
 
+---
+Запрос:
 ````shell
 http :8080/beans
 ````
+
+[http://127.0.0.1:8080/beans](http://127.0.0.1:8080/beans)
+
+Ответ:
+[doc/beans.json](doc/beans.json)
+
+---
 
 ````shell
 http :8080/mappings
 ````
 
+Ответ:
+[doc/mappings.json](doc/mappings.json)
+
+---
+
+Запрос:
 ````shell
 http :8080/error
 ````
-````text
-HTTP/1.1 500 Internal Server Error
-Connection: keep-alive
-Content-Type: application/json;charset=UTF-8
-Date: Wed, 10 Jun 2026 19:53:48 GMT
-Transfer-Encoding: chunked
-X-Application-Context: application
 
+Ответ:
+````json
 {
-"error": "None",
-"message": "No message available",
-"status": 999,
-"timestamp": 1781121228131
+    "error": "None",
+    "message": "No message available",
+    "status": 999,
+    "timestamp": 1781121228131
 }
 ````
 
+---
+
+Запрос:
 ````shell
 http :8080/metrics/
 ````
 
+Ответ:
 ````json
 {
     "classes": 11114,
@@ -113,10 +188,14 @@ http :8080/metrics/
 }
 ````
 
+---
+
+Запрос:
 ````shell
 http :8080/health.json
 ````
 
+Ответ:
 ````json
 {
     "camel": {
@@ -141,15 +220,21 @@ http :8080/health.json
 }
 ````
 
+---
+
 ````shell
 http :8080/trace.json
 ````
 выводит историю запросов
 
+---
+
+Конфигурация:
 ````shell
 http :8080/mappings.json
 ````
 
+Ответ:
 ````json
 {
     "/**": {
@@ -288,6 +373,8 @@ http :8080/mappings.json
 }
 ````
 
+---
+
 Весь лог со служебными API:
 
 ````text
@@ -329,6 +416,48 @@ INFO 27374 --- [           main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapp
 INFO 27374 --- [           main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 INFO 27374 --- [           main] o.s.j.e.a.Annotation
 ````
+
+Запрос:
+````shell
+http :8080/camel/routes.json
+````
+
+Ответ:
+
+````json
+[
+    {
+        "id": "books-api",
+        "status": "Started",
+        "uptime": "1 minute",
+        "uptimeMillis": 86922
+    },
+    {
+        "id": "book-api",
+        "status": "Started",
+        "uptime": "1 minute",
+        "uptimeMillis": 86920
+    },
+    {
+        "id": "doc-api",
+        "status": "Started",
+        "uptime": "1 minute",
+        "uptimeMillis": 86918
+    }
+]
+````
+
+---
+
+Запрос:
+
+````shell
+http :8080/env
+````
+
+Ответ [doc/env.json](doc/env.json)
+
+TODO: дальше?
 
 # spring-boot-guides
 Spring Boot Guides
