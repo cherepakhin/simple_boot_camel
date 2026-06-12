@@ -15,21 +15,28 @@ public class SampleCamelRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
       restConfiguration()
+              .component("servlet")
               .contextPath("/camel-rest-jpa").apiContextPath("/api-doc")
                   .apiProperty("api.title", "Camel REST API")
                   .apiProperty("api.version", "1.0")
                   .apiProperty("cors", "true")
                   .apiContextRouteId("doc-api")
-              .bindingMode(RestBindingMode.json);
+              .bindingMode(RestBindingMode.auto);
 
-      rest("/books").description("Books REST service")
-          .get("/").description("The list of all the books")
-              .route().routeId("books-api")
-              .bean("bookRepository", "getAll")
-              .endRest()
-          .get("/{id}").description("Details of an book by id")
-              .route().routeId("book-api")
-              .bean("bookRepository", "getByIsbn(${header.id})");
+      rest().path("/books")
+              .description("Books REST service")
+              .consumes("application/json")
+              .produces("application/json")
+              .get("/").to("direct:getAll");
+      from("direct:getAll").routeId("my_route")
+                .bean("bookRepository", "getAll") // вызов метода doSomething у бина с именем myBean
+                .to("log:result");
+
+//              .endRest()
+
+//          .get("/{id}").description("Details of an book by id")
+//              .route().routeId("book-api")
+//              .bean("bookRepository", "getByIsbn(${header.id})");
     }
 
 }
