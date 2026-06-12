@@ -32,11 +32,9 @@ public class SampleCamelRouter extends RouteBuilder {
                 .bean("bookRepository", "getAll") // вызов метода doSomething у бина с именем myBean
                 .to("log:result");
 
-//              .endRest()
-
-//          .get("/{id}").description("Details of an book by id")
-//              .route().routeId("book-api")
-//              .bean("bookRepository", "getByIsbn(${header.id})");
+      rest().path("/books").get("/{id}").description("Details of an book by id")
+              .route().routeId("book-api")
+              .bean("bookRepository", "getByIsbn(${header.id})");
     }
 
 }
