@@ -2,7 +2,14 @@
   {
     "status": "UP",
     "check": {
-      "id": "route:books-api",
+      "id": "route:my_route",
+      "group": "camel"
+    }
+  },
+  {
+    "status": "UP",
+    "check": {
+      "id": "route:route1",
       "group": "camel"
     }
   },
