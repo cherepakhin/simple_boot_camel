@@ -1,10 +1,6 @@
 # SpringBoot + Camel REST API
 
-````shell
-echo $JAVA_HOME
-````
-
-/usr/lib/jvm/java-1.8.0-openjdk-amd64
+Java 8
 
 ````shell
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
@@ -69,10 +65,10 @@ http :8080/camel-rest/books/
 
 Запрос:
 ````shell
-http :8080/camel-rest/books/9
+http :8081/camel-rest/books/9
 ````
 
-[http://127.0.0.1:8080/camel-rest/books/9](http://127.0.0.1:8080/camel-rest/books/9)
+[http://127.0.0.1:8081/camel-rest/books/9](http://127.0.0.1:8081/camel-rest/books/9)
 
 Ответ:
 ````json
@@ -86,10 +82,10 @@ id: 9
 ---
 Запрос:
 ````shell
-http :8080/beans
+http :8081/beans
 ````
 
-[http://127.0.0.1:8080/beans](http://127.0.0.1:8080/beans)
+[http://127.0.0.1:8081/beans](http://127.0.0.1:8081/beans)
 
 Ответ:
 [doc/beans.json](doc/beans.json)
@@ -97,7 +93,7 @@ http :8080/beans
 ---
 
 ````shell
-http :8080/mappings
+http :8081/mappings
 ````
 
 Ответ:
@@ -107,7 +103,7 @@ http :8080/mappings
 
 Запрос:
 ````shell
-http :8080/error
+http :8081/error
 ````
 
 Ответ:
@@ -124,7 +120,7 @@ http :8080/error
 
 Запрос:
 ````shell
-http :8080/metrics/
+http :8081/metrics/
 ````
 
 Ответ:
@@ -182,7 +178,7 @@ http :8080/metrics/
 
 Запрос:
 ````shell
-http :8080/health.json
+http :8081/health.json
 ````
 
 Ответ:
@@ -213,7 +209,7 @@ http :8080/health.json
 ---
 
 ````shell
-http :8080/trace.json
+http :8081/trace.json
 ````
 выводит историю запросов
 
@@ -221,7 +217,7 @@ http :8080/trace.json
 
 Конфигурация:
 ````shell
-http :8080/mappings.json
+http :8081/mappings.json
 ````
 
 Ответ [doc/mappings.json](doc/mappings.json)
@@ -233,7 +229,7 @@ http :8080/mappings.json
 Запрос:
 
 ````shell
-http :8080/env
+http :8081/env
 ````
 
 Ответ [doc/env.json](doc/env.json)
@@ -242,7 +238,7 @@ http :8080/env
 
 Запрос:
 ````shell
-http :8080/camel/routes.json
+http :8081/camel/routes.json
 ````
 
 Ответ [doc/routes.json](doc/routes.json)
@@ -252,7 +248,7 @@ http :8080/camel/routes.json
 ### Состояние маршрутов (UP или DOWN)
 
 ````shell
-http :8080/camel/health/check | jq > doc/health_check.json
+http :8081/camel/health/check | jq > doc/health_check.json
 ````
 (jq - форматирует вывод)
 
