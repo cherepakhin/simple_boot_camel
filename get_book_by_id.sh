@@ -1,0 +1,1 @@
+http :8081/camel-rest/books/9

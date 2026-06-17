@@ -9,7 +9,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 ---
 
-[http://127.0.0.1:8081/camel-rest/api-doc](http://127.0.0.1:8081camel-rest/api-doc)
+[http://127.0.0.1:8081/camel-rest/api-doc](http://127.0.0.1:8081/camel-rest/api-doc)
 
 ---
 Запрос:
@@ -17,7 +17,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 http :8081/camel-rest/books/
 ````
 
-[http://127.0.0.1:8081/camel-rest/books/](http://127.0.0.1:8081camel-rest/books/)
+[http://127.0.0.1:8081/camel-rest/books/](http://127.0.0.1:8081/camel-rest/books/)
 
 Ответ:
 ````json
